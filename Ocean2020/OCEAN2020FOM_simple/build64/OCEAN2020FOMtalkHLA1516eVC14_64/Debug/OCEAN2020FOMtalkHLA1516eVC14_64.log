@@ -1,0 +1,43 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(367,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (.\build64\OCEAN2020FOMtalkHLA1516eVC14_64\Debug\) contains files shared from another project (OCEAN2020FOMtalkHLA1516eVC14_64.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Enviromental_Elements.cpp
+  Simulator.cpp
+C:\Program Files (x86)\Windows Kits\8.1\Include\um\dbghelp.h(1544): warning C4091: 'typedef ': ignored on left of '' when no variable is declared (compiling source file Simulator.cpp)
+C:\Program Files (x86)\Windows Kits\8.1\Include\um\dbghelp.h(3190): warning C4091: 'typedef ': ignored on left of '' when no variable is declared (compiling source file Simulator.cpp)
+C:\Program Files (x86)\Windows Kits\8.1\Include\um\dbghelp.h(1544): warning C4091: 'typedef ': ignored on left of '' when no variable is declared (compiling source file Enviromental_Elements.cpp)
+C:\Program Files (x86)\Windows Kits\8.1\Include\um\dbghelp.h(3190): warning C4091: 'typedef ': ignored on left of '' when no variable is declared (compiling source file Enviromental_Elements.cpp)
+Enviromental_Elements.cpp(120): warning C4101: 'e': unreferenced local variable
+Enviromental_Elements.cpp(139): warning C4101: 'e': unreferenced local variable
+Enviromental_Elements.cpp(157): warning C4101: 'e': unreferenced local variable
+Enviromental_Elements.cpp(216): warning C4101: 'e': unreferenced local variable
+Enviromental_Elements.cpp(235): warning C4101: 'e': unreferenced local variable
+Enviromental_Elements.cpp(310): warning C4101: 'angle_lat_vel': unreferenced local variable
+Simulator.cpp(326): warning C4101: 'val_f': unreferenced local variable
+Simulator.cpp(326): warning C4101: 'valU8': unreferenced local variable
+c:\users\anestis\desktop\ocean2020fomsrevision\ocean2020fomsrevision\ocean2020fom_simple\enviromental_elements.cpp(354): warning C4700: uninitialized local variable 'I_xx' used
+c:\users\anestis\desktop\ocean2020fomsrevision\ocean2020fomsrevision\ocean2020fom_simple\enviromental_elements.cpp(354): warning C4700: uninitialized local variable 'I_yy' used
+c:\users\anestis\desktop\ocean2020fomsrevision\ocean2020fomsrevision\ocean2020fom_simple\enviromental_elements.cpp(354): warning C4700: uninitialized local variable 'I_xz' used
+c:\users\anestis\desktop\ocean2020fomsrevision\ocean2020fomsrevision\ocean2020fom_simple\enviromental_elements.cpp(354): warning C4700: uninitialized local variable 'I_yz' used
+c:\users\anestis\desktop\ocean2020fomsrevision\ocean2020fomsrevision\ocean2020fom_simple\enviromental_elements.cpp(354): warning C4700: uninitialized local variable 'I_xy' used
+c:\users\anestis\desktop\ocean2020fomsrevision\ocean2020fomsrevision\ocean2020fom_simple\enviromental_elements.cpp(357): warning C4700: uninitialized local variable 'I_zz' used
+c:\users\anestis\desktop\ocean2020fomsrevision\ocean2020fomsrevision\ocean2020fom_simple\enviromental_elements.cpp(357): warning C4700: uninitialized local variable 'I_zx' used
+c:\users\anestis\desktop\ocean2020fomsrevision\ocean2020fomsrevision\ocean2020fom_simple\enviromental_elements.cpp(239): warning C4700: uninitialized local variable 'current_height' used
+  UxV_Team.cpp
+  UxV_Vessel.cpp
+C:\Program Files (x86)\Windows Kits\8.1\Include\um\dbghelp.h(1544): warning C4091: 'typedef ': ignored on left of '' when no variable is declared (compiling source file UxV_Team.cpp)
+C:\Program Files (x86)\Windows Kits\8.1\Include\um\dbghelp.h(3190): warning C4091: 'typedef ': ignored on left of '' when no variable is declared (compiling source file UxV_Team.cpp)
+C:\Program Files (x86)\Windows Kits\8.1\Include\um\dbghelp.h(1544): warning C4091: 'typedef ': ignored on left of '' when no variable is declared (compiling source file UxV_Vessel.cpp)
+C:\Program Files (x86)\Windows Kits\8.1\Include\um\dbghelp.h(3190): warning C4091: 'typedef ': ignored on left of '' when no variable is declared (compiling source file UxV_Vessel.cpp)
+  OCEAN2020FOMtalk.cxx
+C:\Program Files (x86)\Windows Kits\8.1\Include\um\dbghelp.h(1544): warning C4091: 'typedef ': ignored on left of '' when no variable is declared
+C:\Program Files (x86)\Windows Kits\8.1\Include\um\dbghelp.h(3190): warning C4091: 'typedef ': ignored on left of '' when no variable is declared
+OCEAN2020FOMtalk.cxx(23): warning C4101: 'commnents': unreferenced local variable
+OCEAN2020FOMtalk.cxx(21): warning C4101: 'uxv_subwater': unreferenced local variable
+OCEAN2020FOMtalk.cxx(20): warning C4101: 'uxv_num': unreferenced local variable
+OCEAN2020FOMtalk.cxx(19): warning C4101: 'first_iput': unreferenced local variable
+OCEAN2020FOMtalk.cxx(22): warning C4101: 'uxv_surface': unreferenced local variable
+  OCEAN2020FOMtalkHLA1516eVC14_64.vcxproj -> C:\Users\anestis\Desktop\Ocean2020FomsRevision\Ocean2020FomsRevision\OCEAN2020FOM_simple\.\OCEAN2020FOMtalkHLA1516e_64rd.exe
+  OCEAN2020FOMtalkHLA1516eVC14_64.vcxproj -> C:\Users\anestis\Desktop\Ocean2020FomsRevision\Ocean2020FomsRevision\OCEAN2020FOM_simple\OCEAN2020FOMtalkHLA1516e_64rd.pdb (Full PDB)
+  xcopy "C:\Users\anestis\Desktop\Ocean2020FomsRevision\Ocean2020FomsRevision\OCEAN2020FOM_simple\.\OCEAN2020FOMtalkHLA1516e_64rd.exe" "C:\MAK\vrlink5.4.1\bin64" /y /q
+  1 File(s) copied
