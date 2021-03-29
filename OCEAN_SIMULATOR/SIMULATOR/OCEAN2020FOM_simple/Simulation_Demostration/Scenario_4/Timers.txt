@@ -1,0 +1,11 @@
+SIMULATION TIMER LOGS 
+
+----> Overcome jamming conditions
+--> One targets income
+--> Six Surface vessels
+--> One vessel is jammed
+-->
+
+Simulation time     : 1000.000000 ticks
+Simulation time	dev : 980.661000 secs
+Simulation time	dev : 16 min: 20 sec: 660 millisec

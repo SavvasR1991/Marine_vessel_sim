@@ -1,0 +1,496 @@
+{
+  "Simulation_1": {
+    "Description": "----> High Speed Surface Threat@--> Two-three targets income@--> Surface vessels vanguared@--> Underwater vessel patroling@-->",
+
+    "Enable_comments": 0, //Enable comments output 1->yes 0->no
+    "Enable_Logs_movement": 0, //Enable log storage output for movement 1->yes 0->no
+    "Enable_Logs_FOMS": 0, //Enable log storage output for FOMs 1->yes 0->no
+    "Enable_Logs_KALMAN": 0, //Enable log storage output for Kalman 1->yes 0->no
+    "Enable_Logs_METRICS": 1, //Enable basic metrics output 1->yes 0->no
+    "Enable_comments_basic": 1, //Enable basic comments output 1->yes 0->no
+    "timer_delay": 0, //Time delay in seconds [1.0]
+
+    "Number_Vessel": 8, //Total Number of Vessels
+    "Number_under_water_vessels": 2, //Total Number of under water Vessels
+    "Number_Surface_water_vessels": 6, //Total Number of surface Vessels
+    "Number_Targets": 3, //3 //Total Number of surface Vessels
+
+    "Ship_Range_meters": 1000, //shipe range Meters (aktina)
+    "Ship_Id": 1991, //Unique ship id
+    "Ship_center_x": 55.704741, //55.804932, //55.704741, //Geo Coordinates X Down from Gotland island  //55.899099
+    "Ship_center_y": 14.813821, //14.569061, //14.813821, //Geo Coordinates Y Down from Gotland island  //15.347365
+    "Ship_center_z": -20.0, //Geo Coordinates Z, ASTO ARNHTIKOO, TO ALLAZOUME PRIN TO PUBLISHHH
+    "Ship_shadowing_team": 3, //Maximun Number for shadowing member
+    "Ship_Activated": 1,
+
+    "Oversight_timer": 300, //Time of ovesight patroling after target is out of area
+    "Avoid_Distance": 60, //Avoid distance for collision avoidance
+    "Safe_Distance": 30, //Safe distance for collision avoidance
+
+    "Naval_Base_Activate": 0,
+    "Naval_Base_Activate_degrees_tilt": 180,
+
+    "Jamming_Activate": 0,
+    "Jamming_time_start": 0,
+
+    "Vessel_surface_X_Axis_dims_meters": 4, //Meters
+    "Vessel_surface_Y_Axis_dims_meters": 3, //Meters
+    "Vessel_surface_Z_Axis_dims_meters": 2, //Meters
+    "Vessel_surface_mass": 500, //kilogramm
+    "Vessel_surface_Range_radar_meters": 200, //Meters
+    "Vessel_surface_Speed_angular_degrees_per_sec": 33.125549, //Degrees/second
+    "Vessel_surface_Speed_MAX_met_per_sec": 20.23, //Meters/second   [12]
+    "Vessel_surface_Acceleration_MAX_met_per_sec_2": 5.83, //Meters/second^2   [2]
+    "Vessel_surface_Decelaration_MAX_met_per_sec_2": 1.83, //Meters/second^2   [2]
+    "Vessel_surface_Vanguared_Distance": 260, //Meters
+
+    "Vessel_subwater_X_Axis_dims_meters": 4, //Meters
+    "Vessel_subwater_Y_Axis_dims_meters": 3, //Meters
+    "Vessel_subwater_Z_Axis_dims_meters": 2, //Meters
+    "Vessel_subwater_mass": 200, //Kilogramm
+    "Vessel_subwater_Range_radar_meters": 70, //Meters
+    "Vessel_subwater_Speed_angular_degrees_per_sec": 22.33677, //Degrees/second
+    "Vessel_subwater_Speed_MAX_met_per_sec": 10.21211, //Meters/second   [6.2]
+    "Vessel_subwater_Speed_MAX_submersion_met_per_sec": 3.321, //Meters/second
+    "Vessel_subwater_Acceleration_MAX_met_per_sec_2": 5.813, //Meters/second^2
+    "Vessel_subwater_Decelaration_MAX_met_per_sec_2": 1.813, //Meters/second^2
+    "Vessel_subwater_Vanguared_Distance": 50, //Meters
+    "Vessel_subwater_Vanguared_Distance_depth": 10, //Meters/second   [3]
+
+    "target_x_1": -1600.0, //55.8874469,
+    "target_y_1": 400.0, //15.3548259,
+    "target_z_1": 0.0,
+    "target_type_1": 0,
+    "target_id_1": 1,
+    "target_velocity_1": 9.2321,
+    "target_angle_1": 30,
+    "target_start_time_1": 30,
+    "target_is_a_bomb_1": 1,
+    "target_turning_point_1_1": 60,
+    "target_turning_point_1_2": 70,
+    "target_turning_point_1_3": 80,
+    "target_turning_point_1_4": 175,
+    "target_turning_point_1_5": 185,
+    "target_turning_point_1_6": 195,
+    "target_turning_point_1_7": 300,
+    "target_turning_point_1_8": 305,
+    "target_turning_point_1_9": 310,
+    "target_turning_point_1_10": 1,
+    "target_turning_angle_1": -10,
+
+    "target_x_2": -1700.0, //55.8866913644236,
+    "target_y_2": -500.0, //15.343940378090473,
+    "target_z_2": 0.0,
+    "target_type_2": 0,
+    "target_id_2": 2,
+    "target_velocity_2": 9.2321,
+    "target_angle_2": 30,
+    "target_start_time_2": 50,
+    "target_is_a_bomb_2": 1,
+    "target_turning_point_2_1": 30,
+    "target_turning_point_2_2": 45,
+    "target_turning_point_2_3": 50,
+    "target_turning_point_2_4": 200,
+    "target_turning_point_2_5": 210,
+    "target_turning_point_2_6": 220,
+    "target_turning_point_2_7": 300,
+    "target_turning_point_2_8": 305,
+    "target_turning_point_2_9": 310,
+    "target_turning_point_2_10": 1,
+    "target_turning_angle_2": -10,
+
+    "target_x_3": -2100.0, //55.8866913644236,
+    "target_y_3": -100.0, //15.343940378090473,
+    "target_z_3": 0.0,
+    "target_type_3": 0,
+    "target_id_3": 3,
+    "target_velocity_3": 9.2321,
+    "target_angle_3": 30,
+    "target_start_time_3": 50,
+    "target_is_a_bomb_3": 1,
+    "target_turning_point_3_1": 30,
+    "target_turning_point_3_2": 45,
+    "target_turning_point_3_3": 195,
+    "target_turning_point_3_4": 200,
+    "target_turning_point_3_5": 210,
+    "target_turning_point_3_6": 220,
+    "target_turning_point_3_7": 230,
+    "target_turning_point_3_8": 340,
+    "target_turning_point_3_9": 250,
+    "target_turning_point_3_10": 255,
+    "target_turning_angle_3": -20
+  },
+
+  "Simulation_2": {
+    "Description": "----> Unknown submerged activity@--> One targets income with mine detonation@--> Four Surface vessels@--> Two underwater vessel@-->",
+
+    "Enable_comments": 0, //Enable comments output 1->yes 0->no
+    "Enable_Logs_movement": 0, //Enable log storage output for movement 1->yes 0->no
+    "Enable_Logs_FOMS": 0, //Enable log storage output for FOMs 1->yes 0->no
+    "Enable_Logs_KALMAN": 0, //Enable log storage output for Kalman 1->yes 0->no
+    "Enable_Logs_METRICS": 1, //Enable basic metrics output 1->yes 0->no
+    "Enable_comments_basic": 1, //Enable basic comments output 1->yes 0->no
+    "timer_delay": 0, //Time delay in seconds [1.0]
+
+    "Number_Vessel": 6, //Total Number of Vessels
+    "Number_under_water_vessels": 2, //Total Number of under water Vessels
+    "Number_Surface_water_vessels": 4, //Total Number of surface Vessels
+    "Number_Targets": 2, //Total Number of surface Vessels
+
+    "Ship_Range_meters": 1000, //shipe range Meters
+    "Ship_Id": 1991, //Unique ship id
+    "Ship_center_x": 55.704741, //Geo Coordinates X Down from Gotland island  //55.899099
+    "Ship_center_y": 14.813821, //Geo Coordinates Y Down from Gotland island  //15.347365
+    "Ship_center_z": -20.0, //Geo Coordinates Z, ASTO ARNHTIKOO, TO ALLAZOUME PRIN TO PUBLISHHH
+    "Ship_shadowing_team": 3, //Number for shadowing member
+    "Ship_Activated": 1,
+
+    "Oversight_timer": 200, //Time of ovesight patroling after target is out of area
+    "Avoid_Distance": 60, //Avoid distance for collision avoidance
+    "Safe_Distance": 30, //Safe distance for collision avoidance
+
+    "Naval_Base_Activate": 0,
+    "Naval_Base_Activate_degrees_tilt": 180,
+
+    "Jamming_Activate": 0,
+    "Jamming_time_start": 0,
+
+    "Vessel_surface_X_Axis_dims_meters": 4, //Meters
+    "Vessel_surface_Y_Axis_dims_meters": 3, //Meters
+    "Vessel_surface_Z_Axis_dims_meters": 2, //Meters
+    "Vessel_surface_mass": 500, //kilogramm
+    "Vessel_surface_Range_radar_meters": 200, //Meters
+    "Vessel_surface_Speed_angular_degrees_per_sec": 33.125549, //Degrees/second
+    "Vessel_surface_Speed_MAX_met_per_sec": 14.23, //Meters/second   [12]
+    "Vessel_surface_Acceleration_MAX_met_per_sec_2": 5.83, //Meters/second^2   [2]
+    "Vessel_surface_Decelaration_MAX_met_per_sec_2": 1.83, //Meters/second^2   [2]
+    "Vessel_surface_Vanguared_Distance": 200, //Meters
+
+    "Vessel_subwater_X_Axis_dims_meters": 4, //Meters
+    "Vessel_subwater_Y_Axis_dims_meters": 3, //Meters
+    "Vessel_subwater_Z_Axis_dims_meters": 2, //Meters
+    "Vessel_subwater_mass": 200, //Kilogramm
+    "Vessel_subwater_Range_radar_meters": 70, //Meters
+    "Vessel_subwater_Speed_angular_degrees_per_sec": 33.33677, //Degrees/second
+    "Vessel_subwater_Speed_MAX_met_per_sec": 14.21211, //Meters/second   [6.2]
+    "Vessel_subwater_Speed_MAX_submersion_met_per_sec": 1.321, //Meters/second
+    "Vessel_subwater_Acceleration_MAX_met_per_sec_2": 10.813, //Meters/second^2
+    "Vessel_subwater_Decelaration_MAX_met_per_sec_2": 10.813, //Meters/second^2
+    "Vessel_subwater_Vanguared_Distance": 150, //Meters
+    "Vessel_subwater_Vanguared_Distance_depth": 10, //Meters/second   [3]
+
+
+    "target_x_1": -1500.0, //55.8874469,
+    "target_y_1": -500.0, //15.3548259,
+    "target_z_1": -30.0,
+    "target_type_1": 0,
+    "target_id_1": 1,
+    "target_velocity_1": 9.2321,
+    "target_angle_1": 0,
+    "target_start_time_1": 30,
+    "target_is_a_bomb_1": 1,
+    "target_turning_point_1_1": 150,
+    "target_turning_point_1_2": 155,
+    "target_turning_point_1_3": 160,
+    "target_turning_point_1_4": 165,
+    "target_turning_point_1_5": 200,
+    "target_turning_point_1_6": 210,
+    "target_turning_point_1_7": -1,
+    "target_turning_point_1_8": -1,
+    "target_turning_point_1_9": -1,
+    "target_turning_point_1_10": -1,
+    "target_turning_angle_1": 10,
+
+    "target_x_2": -1500.0, //55.8866913644236,
+    "target_y_2": -500.0, //15.343940378090473,
+    "target_z_2": -30.0,
+    "target_type_2": 0,
+    "target_id_2": 2,
+    "target_velocity_2": 0.0,
+    "target_angle_2": 0,
+    "target_start_time_2": 50,
+    "target_is_a_bomb_2": 130,
+    "`": null, //tick time
+    "target_turning_point_2_1": -1,
+    "target_turning_point_2_2": -1,
+    "target_turning_point_2_3": -1,
+    "target_turning_point_2_4": -1,
+    "target_turning_point_2_5": -1,
+    "target_turning_point_2_6": -1,
+    "target_turning_point_2_7": -1,
+    "target_turning_point_2_8": -1,
+    "target_turning_point_2_9": -1,
+    "target_turning_point_2_10": -1,
+    "target_turning_angle_2": 10,
+
+    "target_x_3": 0,
+    "target_y_3": 0,
+    "target_z_3": 0,
+    "target_type_3": 0,
+    "target_id_3": 3,
+    "target_velocity_3": 0,
+    "target_angle_3": 0,
+    "target_start_time_3": 0,
+    "target_is_a_bomb_3": 0,
+    "target_turning_point_3_1": -1,
+    "target_turning_point_3_2": -1,
+    "target_turning_point_3_3": -1,
+    "target_turning_point_3_4": -1,
+    "target_turning_point_3_5": -1,
+    "target_turning_point_3_6": -1,
+    "target_turning_point_3_7": -1,
+    "target_turning_point_3_8": -1,
+    "target_turning_point_3_9": -1,
+    "target_turning_point_3_10": -1,
+    "target_turning_angle_3": -10
+
+  },
+
+  "Simulation_3": {
+    "Description": "----> Naval base protection in gulf shape@--> One targets income@--> Three Surface vessels@--> Three underwater vessel@-->",
+
+    "Enable_comments": 0, //Enable comments output 1->yes 0->no
+    "Enable_Logs_movement": 0, //Enable log storage output for movement 1->yes 0->no
+    "Enable_Logs_FOMS": 0, //Enable log storage output for FOMs 1->yes 0->no
+    "Enable_Logs_KALMAN": 0, //Enable log storage output for Kalman 1->yes 0->no
+    "Enable_Logs_METRICS": 1, //Enable basic metrics output 1->yes 0->no
+    "Enable_comments_basic": 1, //Enable basic comments output 1->yes 0->no
+    "timer_delay": 0, //Time delay in seconds [1.0]
+
+    "Number_Vessel": 6, //Total Number of Vessels
+    "Number_under_water_vessels": 3, //Total Number of under water Vessels
+    "Number_Surface_water_vessels": 3, //Total Number of surface Vessels
+    "Number_Targets": 1, //Total Number of surface Vessels
+
+    "Ship_Range_meters": 1500, //shipe range Meters
+    "Ship_Id": 1991, //Unique ship id
+    "Ship_center_x": 56.212864, //Geo Coordinates X Down from Gotland island  //55.899099
+    "Ship_center_y": 16.207941, //Geo Coordinates Y Down from Gotland island  //15.347365 56.212864, 16.207941
+    "Ship_center_z": -10.0, //Geo Coordinates Z, ASTO ARNHTIKOO, TO ALLAZOUME PRIN TO PUBLISHHH
+    "Ship_shadowing_team": 2, //Number for shadowing member
+    "Ship_Activated": 0,
+
+    "Oversight_timer": 200, //Time of ovesight patroling after target is out of area
+    "Avoid_Distance": 60, //Avoid distance for collision avoidance
+    "Safe_Distance": 30, //Safe distance for collision avoidance
+
+    "Naval_Base_Activate": 1,
+    "Naval_Base_Activate_degrees_tilt": 0,
+
+    "Jamming_Activate": 0,
+    "Jamming_time_start": 0,
+
+    "Vessel_surface_X_Axis_dims_meters": 4, //Meters
+    "Vessel_surface_Y_Axis_dims_meters": 3, //Meters
+    "Vessel_surface_Z_Axis_dims_meters": 2, //Meters
+    "Vessel_surface_mass": 500, //kilogramm
+    "Vessel_surface_Range_radar_meters": 200, //Meters
+    "Vessel_surface_Speed_angular_degrees_per_sec": 33.125549, //Degrees/second
+    "Vessel_surface_Speed_MAX_met_per_sec": 14.23, //Meters/second   [12]
+    "Vessel_surface_Acceleration_MAX_met_per_sec_2": 5.83, //Meters/second^2   [2]
+    "Vessel_surface_Decelaration_MAX_met_per_sec_2": 1.83, //Meters/second^2   [2]
+    "Vessel_surface_Vanguared_Distance": 200, //Meters
+
+    "Vessel_subwater_X_Axis_dims_meters": 4, //Meters
+    "Vessel_subwater_Y_Axis_dims_meters": 3, //Meters
+    "Vessel_subwater_Z_Axis_dims_meters": 2, //Meters
+    "Vessel_subwater_mass": 200, //Kilogramm
+    "Vessel_subwater_Range_radar_meters": 70, //Meters
+    "Vessel_subwater_Speed_angular_degrees_per_sec": 33.33677, //Degrees/second
+    "Vessel_subwater_Speed_MAX_met_per_sec": 16.21211, //Meters/second   [6.2]
+    "Vessel_subwater_Speed_MAX_submersion_met_per_sec": 0.421, //Meters/second
+    "Vessel_subwater_Acceleration_MAX_met_per_sec_2": 5.813, //Meters/second^2
+    "Vessel_subwater_Decelaration_MAX_met_per_sec_2": 1.813, //Meters/second^2
+    "Vessel_subwater_Vanguared_Distance": 230, //Meters
+    "Vessel_subwater_Vanguared_Distance_depth": 10, //Meters/second   [3]
+
+    "target_x_1": -2200.0, //55.8874469,
+    "target_y_1": -700.0, //15.3548259,
+    "target_z_1": -19.0,
+    "target_type_1": 0,
+    "target_id_1": 1,
+    "target_velocity_1": 9.2321,
+    "target_angle_1": 0,
+    "target_start_time_1": 30,
+    "target_is_a_bomb_1": 1,
+    "target_turning_point_1_1": 120,
+    "target_turning_point_1_2": 125,
+    "target_turning_point_1_3": 130,
+    "target_turning_point_1_4": 135,
+    "target_turning_point_1_5": -1,
+    "target_turning_point_1_6": -1,
+    "target_turning_point_1_7": -1,
+    "target_turning_point_1_8": -1,
+    "target_turning_point_1_9": -1,
+    "target_turning_point_1_10": -1,
+    "target_turning_angle_1": 10,
+
+    "target_x_2": 0.0, //55.8866913644236,
+    "target_y_2": 0.0, //15.343940378090473,
+    "target_z_2": 0.0,
+    "target_type_2": 0,
+    "target_id_2": 0,
+    "target_velocity_2": 0.0,
+    "target_angle_2": 0,
+    "target_start_time_2": 0,
+    "target_is_a_bomb_2": 0,
+    "target_turning_point_2_1": -1,
+    "target_turning_point_2_2": -1,
+    "target_turning_point_2_3": -1,
+    "target_turning_point_2_4": -1,
+    "target_turning_point_2_5": -1,
+    "target_turning_point_2_6": -1,
+    "target_turning_point_2_7": -1,
+    "target_turning_point_2_8": -1,
+    "target_turning_point_2_9": -1,
+    "target_turning_point_2_10": -1,
+    "target_turning_angle_2": 0,
+
+    "target_x_3": 0,
+    "target_y_3": 0,
+    "target_z_3": 0,
+    "target_type_3": 0,
+    "target_id_3": 3,
+    "target_velocity_3": 0,
+    "target_angle_3": 0,
+    "target_start_time_3": 0,
+    "target_is_a_bomb_3": 0,
+    "target_turning_point_3_1": -1,
+    "target_turning_point_3_2": -1,
+    "target_turning_point_3_3": -1,
+    "target_turning_point_3_4": -1,
+    "target_turning_point_3_5": -1,
+    "target_turning_point_3_6": -1,
+    "target_turning_point_3_7": -1,
+    "target_turning_point_3_8": -1,
+    "target_turning_point_3_9": -1,
+    "target_turning_point_3_10": -1,
+    "target_turning_angle_3": 0
+
+  },
+
+  "Simulation_4": {
+    "Description": "----> Overcome jamming conditions@--> One targets income@--> Six Surface vessels@--> One vessel is jammed@-->",
+
+    "Enable_comments": 0, //Enable comments output 1->yes 0->no
+    "Enable_Logs_movement": 0, //Enable log storage output for movement 1->yes 0->no
+    "Enable_Logs_FOMS": 0, //Enable log storage output for FOMs 1->yes 0->no
+    "Enable_Logs_KALMAN": 0, //Enable log storage output for Kalman 1->yes 0->no
+    "Enable_Logs_METRICS": 1, //Enable basic metrics output 1->yes 0->no
+    "Enable_comments_basic": 1, //Enable basic comments output 1->yes 0->no
+    "timer_delay": 0, //Time delay in seconds [1.0]
+
+    "Number_Vessel": 6, //Total Number of Vessels
+    "Number_under_water_vessels": 0, //Total Number of under water Vessels
+    "Number_Surface_water_vessels": 6, //Total Number of surface Vessels
+    "Number_Targets": 1, //Total Number of surface Vessels
+
+    "Ship_Range_meters": 1000, //shipe range Meters
+    "Ship_Id": 1991, //Unique ship id
+    "Ship_center_x": 55.704741, //Geo Coordinates X Down from Gotland island  //55.899099
+    "Ship_center_y": 14.813821, //Geo Coordinates Y Down from Gotland island  //15.347365
+    "Ship_center_z": -20.0, //Geo Coordinates Z, ASTO ARNHTIKOO, TO ALLAZOUME PRIN TO PUBLISHHH
+    "Ship_shadowing_team": 4, //Number for shadowing member
+    "Ship_Activated": 1,
+
+    "Oversight_timer": 100, //Time of ovesight patroling after target is out of area
+    "Avoid_Distance": 60, //Avoid distance for collision avoidance
+    "Safe_Distance": 30, //Safe distance for collision avoidance
+
+    "Naval_Base_Activate": 0,
+    "Naval_Base_Activate_degrees_tilt": 180,
+
+    "Jamming_Activate": 2, //which vessel to be jammed     //1,2,5,6
+    "Jamming_time_start": 200, //tick time
+
+    "Vessel_surface_X_Axis_dims_meters": 4, //Meters
+    "Vessel_surface_Y_Axis_dims_meters": 3, //Meters
+    "Vessel_surface_Z_Axis_dims_meters": 2, //Meters
+    "Vessel_surface_mass": 500, //kilogramm
+    "Vessel_surface_Range_radar_meters": 200, //Meters
+    "Vessel_surface_Speed_angular_degrees_per_sec": 37.125549, //Degrees/second
+    "Vessel_surface_Speed_MAX_met_per_sec": 17.23, //Meters/second   [12]
+    "Vessel_surface_Acceleration_MAX_met_per_sec_2": 5.83, //Meters/second^2   [2]
+    "Vessel_surface_Decelaration_MAX_met_per_sec_2": 1.83, //Meters/second^2   [2]
+    "Vessel_surface_Vanguared_Distance": 250, //Meters
+
+    "Vessel_subwater_X_Axis_dims_meters": 4, //Meters
+    "Vessel_subwater_Y_Axis_dims_meters": 3, //Meters
+    "Vessel_subwater_Z_Axis_dims_meters": 2, //Meters
+    "Vessel_subwater_mass": 200, //Kilogramm
+    "Vessel_subwater_Range_radar_meters": 70, //Meters
+    "Vessel_subwater_Speed_angular_degrees_per_sec": 22.33677, //Degrees/second
+    "Vessel_subwater_Speed_MAX_met_per_sec": 14.21211, //Meters/second   [6.2]
+    "Vessel_subwater_Speed_MAX_submersion_met_per_sec": 3.321, //Meters/second
+    "Vessel_subwater_Acceleration_MAX_met_per_sec_2": 5.813, //Meters/second^2
+    "Vessel_subwater_Decelaration_MAX_met_per_sec_2": 1.813, //Meters/second^2
+    "Vessel_subwater_Vanguared_Distance": 150, //Meters
+    "Vessel_subwater_Vanguared_Distance_depth": 10, //Meters/second   [3]
+
+    "target_x_1": -1600.0, //55.8874469,
+    "target_y_1": 400.0, //15.3548259,
+    "target_z_1": 0.0,
+    "target_type_1": 0,
+    "target_id_1": 1,
+    "target_velocity_1": 9.2321,
+    "target_angle_1": 30,
+    "target_start_time_1": 30,
+    "target_is_a_bomb_1": 1,
+    "target_turning_point_1_1": 60,
+    "target_turning_point_1_2": 70,
+    "target_turning_point_1_3": 80,
+    "target_turning_point_1_4": 175,
+    "target_turning_point_1_5": 185,
+    "target_turning_point_1_6": 195,
+    "target_turning_point_1_7": 300,
+    "target_turning_point_1_8": 305,
+    "target_turning_point_1_9": 310,
+    "target_turning_point_1_10": 1,
+    "target_turning_angle_1": -10,
+
+    "target_x_2": 0.0,
+    "target_y_2": 0.0,
+    "target_z_2": 0.0,
+    "target_type_2": 0,
+    "target_id_2": 2,
+    "target_velocity_2": 0,
+    "target_angle_2": 0,
+    "target_start_time_2": 0,
+    "target_is_a_bomb_2": 0,
+    "target_turning_point_2_1": -1,
+    "target_turning_point_2_2": -1,
+    "target_turning_point_2_3": -1,
+    "target_turning_point_2_4": -1,
+    "target_turning_point_2_5": -1,
+    "target_turning_point_2_6": -1,
+    "target_turning_point_2_7": -1,
+    "target_turning_point_2_8": -1,
+    "target_turning_point_2_9": -1,
+    "target_turning_point_2_10": -1,
+    "target_turning_angle_2": 0,
+
+    "target_x_3": 0,
+    "target_y_3": 0,
+    "target_z_3": 0,
+    "target_type_3": 0,
+    "target_id_3": 3,
+    "target_velocity_3": 0,
+    "target_angle_3": 0,
+    "target_start_time_3": 0,
+    "target_is_a_bomb_3": 0,
+    "target_turning_point_3_1": -1,
+    "target_turning_point_3_2": -1,
+    "target_turning_point_3_3": -1,
+    "target_turning_point_3_4": -1,
+    "target_turning_point_3_5": -1,
+    "target_turning_point_3_6": -1,
+    "target_turning_point_3_7": -1,
+    "target_turning_point_3_8": -1,
+    "target_turning_point_3_9": -1,
+    "target_turning_point_3_10": -1,
+    "target_turning_angle_3": 0
+  }
+
+}
+
+

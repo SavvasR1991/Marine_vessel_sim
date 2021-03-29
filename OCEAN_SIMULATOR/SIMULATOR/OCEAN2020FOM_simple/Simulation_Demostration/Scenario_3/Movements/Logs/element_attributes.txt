@@ -1,0 +1,7 @@
+Ship range                   : 1500.000000 meters
+Ship uxv underwater vessels  : 3
+Ship uxv surface vessels     : 3
+Ship reference coordinates   : [56.2129,16.2079,0]
+
+Ship surface vessels radius  : 8.000000
+Ship subwater vessels radius : 8.000000

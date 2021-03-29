@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NKUA-VR-Link-Listen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="">
+   <settings>
+      <!--Notify Level-->
+      <notifyLevel value="2"/>
+      <!--HLA Connection Settings-->
+      <hlaConnection>
+         <!--Federate Type-->
+         <federateType value="NKUA VR-Link Listen"/>
+         <!--Federate Execution Name-->
+         <execName value="OCEAN2020"/>
+         <!--FED File Name-->
+         <fedFileName value="RPR_FOM_v2.0_1516-2010.xml"/>
+         <!--Federate Name-->
+         <federateName value="NKUA VR-Link Listen 6476"/>
+         <!--Add FOM Modules-->
+         <fomModules/>
+         <!--HLA Evolved MIM Module-->
+         <mimModule value=""/>
+         <!--HLA Evolved Local Settings Designator-->
+         <localSettingsDesignator value=""/>
+         <!--FOM Mapper Library-->
+         <fomMapperLib value="libOCEAN2020FOM1516e_64d"/>
+         <!--FOM Mapper Initialization Data-->
+         <fomMapperInitData value=""/>
+         <!--RPR FOM Version-->
+         <rprFomVersion value="2"/>
+         <!--Internal revision of the implementation of the RPR FOM version-->
+         <rprFomRevision value="3"/>
+         <!--Use Advisories-->
+         <useAdvisories value="true"/>
+         <!--Use Geographic DDM-->
+         <useGeographicDdm value="false"/>
+         <!--Use Absolute Timestamps-->
+         <useAbsoluteTimestamps value="false"/>
+         <!--Destroy Federation Execution-->
+         <destroyFedExec value="true"/>
+         <!--Send Fed Time-->
+         <sendFedTime value="false"/>
+         <!--Enable Generic Attributes-->
+         <genericAttributes value="false"/>
+         <!--Pause on Save and Restore-->
+         <pauseOnSaveRestore value="false"/>
+         <!--Notify level in log file to use-->
+         <fileNotifyLevel value="2"/>
+         <!--Log file to use-->
+         <logFileName value=""/>
+      </hlaConnection>
+   </settings>
+</NKUA-VR-Link-Listen>

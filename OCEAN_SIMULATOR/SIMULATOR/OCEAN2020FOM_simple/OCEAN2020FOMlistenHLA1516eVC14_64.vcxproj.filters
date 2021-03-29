@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="$(MAK_VRLDIR)/data/resource.h" />
+    <ClInclude Include="Headers\UxV_Team.h">
+      <Filter>Headers\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\UxV_Vessel.h">
+      <Filter>Headers\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Simulator.h">
+      <Filter>Headers\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Navigation_UxV_System.h">
+      <Filter>Headers\Interfaces Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Utils_Functions.h">
+      <Filter>Headers\Utils Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\JSON_Reader.h">
+      <Filter>Headers\Utils Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\General_functions.h">
+      <Filter>Headers\Utils Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Navigation_Jobs.h">
+      <Filter>Headers\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Sector.h">
+      <Filter>Headers\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\UxV_Jobs.h">
+      <Filter>Headers\Interfaces Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Collision_avoidance.h">
+      <Filter>OCEAN_Project\Collision Avoidance</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\OCEAN_Federates_Headers.h">
+      <Filter>OCEAN_Project\Interfaces/Federates</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Area_Obstacle.h">
+      <Filter>Headers\Utils Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\run_tests.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\Collision_Avoidance_test.h">
+      <Filter>Tests\Test Units\Test_Collision_Avoidance</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Geometry_Functions.h">
+      <Filter>Headers\Mathematical Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Square_3D.h">
+      <Filter>Headers\Mathematical Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Point.h">
+      <Filter>Headers\Mathematical Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Square_2D.h">
+      <Filter>Headers\Mathematical Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Data_Stuctures.h">
+      <Filter>Headers\Data Structure Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\Water_Waves_Kinematics_test.h">
+      <Filter>Tests\Test Units\Test_Water_ Waves_ Kinematics</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Surveilance_Loiter_Mode.h">
+      <Filter>OCEAN_Project\Mode Surveillance/Loiter</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Predictor_Position.h">
+      <Filter>OCEAN_Project\Possition Prediction</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Water_Waves_Kinematics.h">
+      <Filter>OCEAN_Project\Water Waves Kinematics</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\Helper_Header.h">
+      <Filter>Tests\Helper Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\Json_Reader.h">
+      <Filter>Tests\Helper Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\Test_Target_movement.h">
+      <Filter>Tests\Test Integration</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Data_Constant_Values.h">
+      <Filter>Headers\Data Structure Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Shadow_Team.h">
+      <Filter>Headers\Shadow Team Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Simulator_helper_function.h">
+      <Filter>OCEAN_Project\Interfaces/Federates</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\UxV_Team_Helper_functions.h">
+      <Filter>OCEAN_Project\USS / UUS Deployment and Swarming</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\Possition_Prediction_test.h">
+      <Filter>Tests\Test Units\Test_Possition_Prediction</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\Input_Data_Possition_Prediction_test.json">
+      <Filter>Tests\Test Units\Test_Possition_Prediction</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\UxV_Vessel_Helper_functions.h">
+      <Filter>OCEAN_Project\UxV Vessels</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Communication_Support.h">
+      <Filter>OCEAN_Project\Swarm Support Communications</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Target.h">
+      <Filter>Headers\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Tracking_Shadowing_Mode.h">
+      <Filter>OCEAN_Project\Mode Tracking/Shadowing</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\OCEAN2020FOMf18Init.h">
+      <Filter>Headers\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Reassignment_Shadow_team.h">
+      <Filter>OCEAN_Project\Reassignment Issues</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="$(MAK_VRLDIR)/data/vrlink.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="OCEAN_SIMULATOR_MAIN.cxx" />
+    <ClCompile Include="Sources\UxV_Vessel.cpp">
+      <Filter>OCEAN_Project\UxV Vessels</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Collision_avoidance.cpp">
+      <Filter>OCEAN_Project\Collision Avoidance</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Simulator.cpp">
+      <Filter>OCEAN_Project\Interfaces/Federates</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\UxV_Team.cpp">
+      <Filter>OCEAN_Project\USS / UUS Deployment and Swarming</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Water_Waves_Kinematics.cpp">
+      <Filter>OCEAN_Project\Water Waves Kinematics</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\OCEAN2020FOMf18Init.cpp">
+      <Filter>OCEAN_Project\Interfaces/Federates</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Input Data">
+      <UniqueIdentifier>{40f4e448-45a5-45ea-872a-57a1978e5772}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OCEAN_Project">
+      <UniqueIdentifier>{25705748-769d-4a62-bd03-f16018251de1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OCEAN_Project\Swarm Support Communications">
+      <UniqueIdentifier>{20555e01-cc9a-461c-b1d6-8623da883dc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OCEAN_Project\USS / UUS Deployment and Swarming">
+      <UniqueIdentifier>{4e164021-f37c-4a9a-9832-2e23d0c231db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OCEAN_Project\Reassignment Issues">
+      <UniqueIdentifier>{f89c3300-db94-4015-bab7-d7e2d21f34a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OCEAN_Project\Interfaces/Federates">
+      <UniqueIdentifier>{2df1f382-e261-4a07-822c-3cc1fb92bb08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{e33fdb2b-65e3-425f-bf6c-4f0bc96980a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Header Files">
+      <UniqueIdentifier>{4487481e-3024-4f23-81e3-42c45ac7ffa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Utils Files">
+      <UniqueIdentifier>{fd361812-9047-4bd9-8a51-992036cc4a50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Interfaces Files">
+      <UniqueIdentifier>{ec5be9e9-cd3e-45f1-a1f3-3307b9eee098}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OCEAN_Project\Water Waves Kinematics">
+      <UniqueIdentifier>{b96d49c7-e344-467a-8c94-6e1e076e03fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OCEAN_Project\UxV Vessels">
+      <UniqueIdentifier>{ce050fc7-5bd3-4f40-89b4-2a642fc75537}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OCEAN_Project\Mode Tracking/Shadowing">
+      <UniqueIdentifier>{66769530-b342-4208-a356-daea74122b82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{3d95c843-0c46-4f7d-9657-34f6389d7791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OCEAN_Project\Collision Avoidance">
+      <UniqueIdentifier>{f8572681-8310-43d6-b6b9-d53fa086faa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Mathematical Files">
+      <UniqueIdentifier>{61d17cc7-95e8-430a-95f6-27456ee9f5c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Data Structure Files">
+      <UniqueIdentifier>{ebe8a9c3-0ffa-45ff-aaba-b9c4346fc094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Helper Headers">
+      <UniqueIdentifier>{fc1827d3-e081-4a01-9a92-3c7082370b90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Test Units">
+      <UniqueIdentifier>{201b10d1-a415-4c8c-87c0-fd45656c58ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Test Units\Test_Collision_Avoidance">
+      <UniqueIdentifier>{7dbb89a8-a186-448f-8f85-bf692821be3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Test Units\Test_Water_ Waves_ Kinematics">
+      <UniqueIdentifier>{e99c33f5-efac-41fe-b1fd-2d6d9f3da4e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Shadow Team Files">
+      <UniqueIdentifier>{13c5e79f-35d5-4e98-b0f4-8780bf631862}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OCEAN_Project\Possition Prediction">
+      <UniqueIdentifier>{38450536-a1cc-442b-8309-30b00e0fe60a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Test Units\Test_Possition_Prediction">
+      <UniqueIdentifier>{b9580bbf-7cd8-42e3-8b2f-d912ed2c4d6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OCEAN_Project\Mode Surveillance/Loiter">
+      <UniqueIdentifier>{1c8c4719-a754-48d1-986d-d4714e2f8ea6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Test Integration">
+      <UniqueIdentifier>{a15c1df5-f2e9-4bd5-8331-7e2676a5216f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tests\Input_Data_Collision_test.json">
+      <Filter>Tests\Test Units\Test_Collision_Avoidance</Filter>
+    </None>
+    <None Include="Tests\Input_Data_Water_Waves_Kinematics_test.json">
+      <Filter>Tests\Test Units\Test_Water_ Waves_ Kinematics</Filter>
+    </None>
+    <None Include="Tests\Input_Data_Target_Movement.json">
+      <Filter>Tests\Test Integration</Filter>
+    </None>
+    <None Include="Input Data\Input_Data.json">
+      <Filter>Input Data</Filter>
+    </None>
+    <None Include="Tests\Input_Data_Water_Waves_Kinematics_test_Sub.json">
+      <Filter>Tests\Test Units\Test_Water_ Waves_ Kinematics</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Input Data\BALTIC_SEA.png">
+      <Filter>Input Data</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="OCEAN2020f18.xml" />
+  </ItemGroup>
+</Project>

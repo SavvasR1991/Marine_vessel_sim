@@ -1,0 +1,38 @@
+----------------------------- VESSEL DATA ---------------------------------- 
+VESSEL NAME: NKUA_USV_05
+VESSEL TYPE: SURFACE
+
+VESSEL LENGTH    : 4 m
+VESSEL WIDTH     : 3 m
+VESSEL HEIGGHT   : 2 m
+VESSEL MASS      : 500 kg
+VESSEL MAX SPEED : 62.028 kh/m
+
+
+----------------------------- VESSEL TIMERS -------------------------------- 
+TOTAL TICKS       : 1000 
+TOTAL EXEC TIME   : 1000 secs
+
+------------------------- VESSEL SURVEILANCE ----------------------- 
+SURVEILANCE TICKS : 692 
+SURVEILANCE TIME  : 692 secs
+
+------------------------- VESSEL TRACKING -------------------------- 
+TARGET NAME                  : TARGET_01 
+
+VANGUARED DEPLOY             : 57
+VANGUARED DEPLOY TIME        : 57 secs
+
+VANGUARED TARGET LOCK TICKS  : 151
+VANGUARED TARGET LOCK TIME   : 151 secs
+
+OVERSIGHT PATROLING TICKS    : 100
+OVERSIGHT PATROLING TIME     : 100 secs
+
+AVERAGE DISTANCE TARGET      : 451.262 m
+
+----------------------------- VESSEL JOBS PERCENTAGES ---------------------- 
+SURVEILANCE            : 69.2 %
+VANGUARED DEPLOY       : 5.7 %
+VANGUARED LOCK TARGET  : 15.1 %
+OVERSIGHT              : 10 %

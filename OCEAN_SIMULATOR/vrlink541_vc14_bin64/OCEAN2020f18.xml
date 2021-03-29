@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VR-Link-F18 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="">
+   <settings>
+      <!--Notify Level-->
+      <notifyLevel value="2"/>
+      <!--DIS Connection Settings-->
+      <disConnection>
+         <!--DIS Port-->
+         <disPort value="3000"/>
+         <!--Exercise ID-->
+         <exerciseId value="1"/>
+         <!--Site Number-->
+         <siteId value="1"/>
+         <!--Application Number-->
+         <!-- <appNumber value="2"/> -->
+         <!--DIS Version-->
+         <disVersion value="7"/>
+         <!--Destination Address-->
+         <destAddrString value=""/>
+         <!--Send Buffer Size-->
+         <sendBufferSize value="-1"/>
+         <!--Receive Buffer Size-->
+         <recvBufferSize value="-1"/>
+         <!--Use Asynchronous I/O-->
+         <useAsyncIO value="false"/>
+         <!--Use IPV6 if possible-->
+         <useIpv6 value="false"/>
+         <!--Suppress DIS self-reflection-->
+         <suppressSelfReflect value="false"/>
+         <!--Use Absolute Timestamps-->
+         <useAbsoluteTimestamps value="false"/>
+         <!--Multicast TTL-->
+         <mcastTtl value="2"/>
+         <!--Multicast Addresses-->
+         <multicastAddresses/>
+         <!--Address of device to use-->
+         <deviceAddress value=""/>
+      </disConnection>
+      <!--HLA Connection Settings-->
+      <hlaConnection>
+        <!--Federate Execution Name-->
+        <execName value="OCEAN2020"/>
+        <!--Federate Type-->
+        <federateType value="VR-Link F18"/>
+		<!--FED File Name-->
+		<fedFileName value="RPR_FOM_v2.0_1516-2010.xml"/> <!-- HLA 1516 EVOLVED FEDERATION -->
+		<!--FOM Mapper Library-->
+		<fomMapperLib value="libOCEAN2020FOM1516e"/>
+		<!--FOM Mapper Initialization Data-->
+		<fomMapperInitData value=""/>
+		<!--RPR FOM Version-->
+		<rprFomVersion value="2"/>
+		<!--RPR FOM Revision-->
+		<rprFomRevision value="3"/>
+		<!--Use Advisories-->
+		<useAdvisories value="true"/>
+		<!--Use Geographic DDM-->
+		<useGeographicDdm value="false"/>
+		<!--Use Absolute Timestamps-->
+		<useAbsoluteTimestamps value="true"/>
+		<!--Destroy Federation Execution-->
+		<destroyFedExec value="true"/>
+		<!--Send Fed Time-->
+		<sendFedTime value="false"/>
+         <!--Federate Name (HLA Evolved)-->
+         <federateName value="OCEAN2020f18"/>
+		<!--Fom Modules (HLA Evolved)
+			OCEAN2020 FOM modules
+		-->
+		<fomModules>
+			<module value="OCEAN2020FOM_COMMCE_v1.0.xml"/>
+			<module value="OCEAN2020FOM_Environmental_v1.0.xml"/>
+			<module value="OCEAN2020FOM_SISO-STD-001.1-2015_v1.1.xml"/>
+			<module value="OCEAN2020FOM_SENSORS_v1.0.xml"/>
+		</fomModules>		 
+         <!--Local Settings Designator (HLA Evolved)-->
+         <localSettingsDesignator value=""/>
+         <!--MIM Module (HLA Evolved)-->
+         <mimModule value=""/>
+      </hlaConnection>
+      <!--Initial Location-->
+      <initialPosition>
+         <x value="0"/>
+         <y value="0"/>
+         <z value="-1230"/>
+      </initialPosition>
+      <!--LISP File Name-->
+      <lispFile value="f18.mtl"/>
+      <!--Dead Reckon Algorithm-->
+      <deadReckonAlgorithm value="4"/>
+      <!--Initial Turn Radius-->
+      <initialTRadius value="-250"/>
+      <!--Initial Speed-->
+      <initialSpeed value="40"/>
+      <!--Entity Type String-->
+      <entityTypeStr value="1:2:225:1:9:0:0"/>
+      <!--F18 Markings-->
+      <f18Markings value="MAK-VRLink-F18"/>
+      <!--F18 Object Name-->
+      <f18Name value="MaK-F18"/>
+      <!--Destroyed To Final Delay-->
+      <destroyedToFinalDelay value="20"/>
+      <!--Initial Heading-->
+      <initialHeading value="180"/>
+      <!--Topographic Coordinate System Origin-->
+      <topoOrigin value="35.699760,-121.326577"/>
+      <!--Initial Position in Geocentric Coordinates-->
+      <worldPos>
+         <x value="0"/>
+         <y value="0"/>
+         <z value="0"/>
+      </worldPos>
+      <!--Lethal Detonation Range-->
+      <lethalDetonationRange value="20"/>
+      <!--Munition Flight Time-->
+      <munitionFlightTime value="3"/>
+      <!--Initial Pitch-->
+      <initialPitch value="0"/>
+      <!--Initial Roll-->
+      <initialRoll value="0"/>
+      <!--Auto Roll-->
+      <autoRoll value="true"/>
+      <!--Entity Number-->
+      <entNum value="1"/>
+      <!--Have Articulated Parts-->
+      <haveArtParts value="false"/>
+      <!--Reference Latitude-->
+      <refLatitude value="21.321048"/>
+      <!--Reference Longitude-->
+      <refLongitude value="-157.919254"/>
+      <!--Delta Time-->
+      <deltaTime value="0.05"/>
+   </settings>
+</VR-Link-F18>
