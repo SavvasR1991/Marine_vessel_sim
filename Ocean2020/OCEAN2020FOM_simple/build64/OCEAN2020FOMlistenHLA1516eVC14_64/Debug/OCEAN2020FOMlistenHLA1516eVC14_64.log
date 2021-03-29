@@ -1,9 +1,0 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(367,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  OCEAN2020FOMlisten.cxx
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\dbghelp.h(1544): warning C4091: 'typedef ': ignored on left of '' when no variable is declared
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\dbghelp.h(3190): warning C4091: 'typedef ': ignored on left of '' when no variable is declared
-  OCEAN2020FOMlistenHLA1516eVC14_64.vcxproj -> C:\Users\anestis\Desktop\Ocean2020FomsRevision\OCEAN2020FOMvrlinkEx\OCEAN2020FOM_simple\.\OCEAN2020FOMlistenHLA1516e_64rd.exe
-  OCEAN2020FOMlistenHLA1516eVC14_64.vcxproj -> C:\Users\anestis\Desktop\Ocean2020FomsRevision\OCEAN2020FOMvrlinkEx\OCEAN2020FOM_simple\OCEAN2020FOMlistenHLA1516e_64rd.pdb (Full PDB)
-  xcopy "C:\Users\anestis\Desktop\Ocean2020FomsRevision\OCEAN2020FOMvrlinkEx\OCEAN2020FOM_simple\.\OCEAN2020FOMlistenHLA1516e_64rd.exe" "C:\MAK\vrlink5.4.1\bin64" /y /q
-  1 File(s) copied
