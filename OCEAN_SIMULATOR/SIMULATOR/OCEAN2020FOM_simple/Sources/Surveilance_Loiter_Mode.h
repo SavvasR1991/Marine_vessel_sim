@@ -8,7 +8,7 @@
 namespace Surveilance_Loiter {
 	
 	/******************* PATROLING ******************/
-	void patroling(VESSEL_KINEMATICS *vessel_kinematics, VESSEL_CHARACTERISTICS* vessel_char, VESSEL_MOTION_VALUES *vessel_motion, list<Point*>::iterator &current_patroling_point, std::list<Point*> &patroling_points) {
+	void patroling(VESSEL_KINEMATICS *vessel_kinematics, VESSEL_CHARACTERISTICS* vessel_char, VESSEL_MOTION_VALUES *vessel_motion, list<Point*>::iterator &current_patroling_point, std::list<Point*> &patroling_points, int &counter_patrol) {
 		double curr_x = vessel_kinematics->get_current_x();
 		double curr_y = vessel_kinematics->get_current_y();
 		double patroling_target_x = (*current_patroling_point)->x();
@@ -23,11 +23,7 @@ namespace Surveilance_Loiter {
 					current_patroling_point = patroling_points.begin();
 				}
 				current_patroling_point = (++current_patroling_point);
-				/*vessel_motion->set_speed_comp_x(0.0);
-				vessel_motion->set_speed_comp_y(0.0);
-				vessel_motion->set_speed_comp_z(0.0);
-				vessel_motion->set_speed(0.0);
-				vessel_motion->set_acceleration(0.0);*/
+				counter_patrol++;
 			}
 			theta_dest_horiz = angle_between_2d_points(curr_x, curr_y, (*current_patroling_point)->x(), (*current_patroling_point)->y());
 			vessel_kinematics->set_destination_xyz((*current_patroling_point)->x(), (*current_patroling_point)->y(), 0);
@@ -52,12 +48,10 @@ namespace Surveilance_Loiter {
 				vessel_motion->set_speed_comp_z(0.0);
 				vessel_motion->set_speed(0.0);
 				vessel_motion->set_acceleration(0.0);
+				counter_patrol++;
 			}
 			theta_dest_horiz = angle_between_2d_points(curr_x, curr_y, (*current_patroling_point)->x(), (*current_patroling_point)->y());
-			theta_dest_vertical = angle_between_3d_points(curr_x, curr_y, curr_z,
-				(*current_patroling_point)->x(),
-				(*current_patroling_point)->y(),
-				(*current_patroling_point)->z());
+			theta_dest_vertical = angle_between_3d_points(curr_x, curr_y, curr_z,(*current_patroling_point)->x(),(*current_patroling_point)->y(),(*current_patroling_point)->z());
 			vessel_kinematics->set_destination_xyz((*current_patroling_point)->x(), (*current_patroling_point)->y(), (*current_patroling_point)->z());
 			vessel_kinematics->set_safe_xyz((*current_patroling_point)->x(), (*current_patroling_point)->y(), (*current_patroling_point)->z());
 			vessel_kinematics->set_destination_theta_horizontal(theta_dest_horiz);

@@ -13,7 +13,7 @@
     "Number_Vessel": 8, //Total Number of Vessels
     "Number_under_water_vessels": 2, //Total Number of under water Vessels
     "Number_Surface_water_vessels": 6, //Total Number of surface Vessels
-    "Number_Targets": 3, //3 //Total Number of surface Vessels
+    "Number_Targets": 2, //3 //Total Number of surface Vessels
 
     "Ship_Range_meters": 1000, //shipe range Meters (aktina)
     "Ship_Id": 1991, //Unique ship id

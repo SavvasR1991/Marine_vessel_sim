@@ -52,7 +52,6 @@ void UxV_Team::initialize_team_attributes(TEAM_INIT_DATA team_init_data, DtExerc
 
 	this->ship_range = team_init_data.ship_range;				//ship range
 	this->ship_shadowing_team = team_init_data.ship_shadowing_team;
-
 	this->refLatitude = team_init_data.refLatitude;				//initial latitude
 	this->refLongitude = team_init_data.refLongitude;			//initial longitude
 	this->refHeight = team_init_data.refHeight;
@@ -488,12 +487,14 @@ void UxV_Team::print_voting_shadow_team() {
 	if (!this->teams_shawdowing.empty()) {
 		for (std::map<std::string, SHADOWING_TEAM*>::iterator it = std::begin(this->teams_shawdowing); it != std::end(this->teams_shawdowing); ++it)
 		{
+			cout << "-->" << it->first << endl;
 			(it)->second->print_shadow_teams();
 		}
 	}
 	if (!this->teams_shawdowing_sub.empty()) {
 		for (std::map<std::string, SHADOWING_TEAM*>::iterator it = std::begin(this->teams_shawdowing_sub); it != std::end(this->teams_shawdowing_sub); ++it)
 		{
+			cout << "-->"<< it->first <<endl;
 			(it)->second->print_shadow_teams();
 		}
 	}

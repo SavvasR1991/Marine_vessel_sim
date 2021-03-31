@@ -62,6 +62,7 @@ namespace Tracking_Shadowing {
 			}
 		}
 		else {
+			cout << curr_x << " " << curr_y << " " << x_target_tmp << " " << y_target_tmp << endl;
 			theta_dest_horiz = angle_between_2d_points(curr_x, curr_y, x_target_tmp, y_target_tmp);
 			vessel_kinematics->set_destination_xyz(x_target_tmp, y_target_tmp, z_target_tmp);
 			vessel_kinematics->set_destination_theta_horizontal(theta_dest_horiz);
@@ -76,6 +77,8 @@ namespace Tracking_Shadowing {
 	void lock(VESSEL_KINEMATICS *vessel_kinematics, VESSEL_CHARACTERISTICS* vessel_char, double x_target, double y_target, double z_target, std::vector<SHADOWING_TEAM_DATA*>  *shadow_team, char *job, bool *team_lock, double vanguard_distance, double vanguard_distance_depth) {
 		double curr_x = vessel_kinematics->get_current_x();
 		double curr_y = vessel_kinematics->get_current_y();
+		double x_target_tmp = x_target;
+		double y_target_tmp = y_target;
 		double z_target_tmp = z_target;
 		double theta_dest_horiz, xBeforeRotation = 0, yBeforeRotation = 0, direction = 0;
 		bool check_team_is_lock = true;
@@ -107,22 +110,27 @@ namespace Tracking_Shadowing {
 		else {
 			z_target_tmp = z_target_tmp + vanguard_distance_depth;// vanguard_distance * NORMALIZER_GEODIC_MINUTES_TO_METERS;
 		}
-
-		*team_lock = check_team_is_lock;
-		double angleOfRotation = findAngleOfRotation(x_target, y_target, vessel_kinematics->get_reference_x(), vessel_kinematics->get_reference_y());
-		double new_point_x = 0, new_point_y = 0;
-		calculatePositionOfNodeAfterRotation(x_target, y_target, xBeforeRotation, yBeforeRotation, angleOfRotation, direction, new_point_x, new_point_y);
-		if (reverse == true) {
-			double amgle_new = angle_between_2d_points(vessel_kinematics->get_reference_x(), vessel_kinematics->get_reference_y(), new_point_x, new_point_y);
-			double dist_new = point_distance(vessel_kinematics->get_reference_x(), vessel_kinematics->get_reference_y(), new_point_x, new_point_y);
-			double vertical = dist_new * sin(degrees_to_radians(amgle_new));
-			double theta_rad = degrees_to_radians(90);
-			new_point_y = vessel_kinematics->get_reference_y() + abs(vertical);
+		if (direction >= 0) {
+			*team_lock = check_team_is_lock;
+			double angleOfRotation = findAngleOfRotation(x_target, y_target, vessel_kinematics->get_reference_x(), vessel_kinematics->get_reference_y());
+			double new_point_x = 0, new_point_y = 0;
+			calculatePositionOfNodeAfterRotation(x_target, y_target, xBeforeRotation, yBeforeRotation, angleOfRotation, direction, new_point_x, new_point_y);
+			if (reverse == true) {
+				double amgle_new = angle_between_2d_points(vessel_kinematics->get_reference_x(), vessel_kinematics->get_reference_y(), new_point_x, new_point_y);
+				double dist_new = point_distance(vessel_kinematics->get_reference_x(), vessel_kinematics->get_reference_y(), new_point_x, new_point_y);
+				double vertical = dist_new * sin(degrees_to_radians(amgle_new));
+				double theta_rad = degrees_to_radians(90);
+				new_point_y = vessel_kinematics->get_reference_y() + abs(vertical);
+			}
+			theta_dest_horiz = angle_between_2d_points(curr_x, curr_y, new_point_x, new_point_y);
+			vessel_kinematics->set_destination_xyz(new_point_x, new_point_y, z_target_tmp);
+			vessel_kinematics->set_destination_theta_horizontal(theta_dest_horiz);
 		}
-
-		theta_dest_horiz = angle_between_2d_points(curr_x, curr_y, new_point_x, new_point_y);
-		vessel_kinematics->set_destination_xyz(new_point_x, new_point_y, z_target_tmp);
-		vessel_kinematics->set_destination_theta_horizontal(theta_dest_horiz);
+		else {
+			theta_dest_horiz = angle_between_2d_points(curr_x, curr_y, x_target_tmp, y_target_tmp);
+			vessel_kinematics->set_destination_xyz(x_target_tmp, y_target_tmp, z_target_tmp);
+			vessel_kinematics->set_destination_theta_horizontal(theta_dest_horiz);
+		}
 	}
 
 	/******************* OVERSIGHT ******************/

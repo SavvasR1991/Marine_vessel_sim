@@ -384,6 +384,108 @@ void UxV_Vessel::save_print_vessel_possition() {
 	}
 }
 
+void UxV_Vessel::store_metrics() {
+	std::cout << "\n>>----- " << vessel_char->get_name() << " Deleted -----<<" << std::endl;
+	if (this->logs_timer == 'y') {
+		std::fstream movement_output;
+		movement_output.open(log_dir_timer + "\\" + vessel_char->get_name() + ".txt", std::fstream::in | std::fstream::out | std::fstream::app);
+		movement_output << "\n";
+		movement_output << "----------------------------- VESSEL TIMERS -------------------------------- \n";
+		movement_output << "TOTAL TICKS       : " << this->total_ticks << " \n";
+		movement_output << "TOTAL EXEC TIME   : " << this->total_time << " secs\n\n";
+		movement_output << "------------------------- VESSEL SURVEILANCE ----------------------- \n";
+		movement_output << "PATROLING TICKS   : " << this->survilance_ticks << " \n";
+		movement_output << "PATROLING TIME    : " << this->survilance_time << " secs\n";
+		movement_output << "\n";
+		movement_output << "PATROLING F TICKS : " << this->full_patroling_ticks << " \n";
+		movement_output << "PATROLING F TIME  : " << this->full_patroling_time << " secs\n";
+		movement_output << "PATROLING F PER   : " << ( this->patroling_ponts_total*100) / this->patroling_ponts_total_length << " %\n";
+		movement_output << "\n";	
+		movement_output << "RESET TICKS       : " << this->reset_ticks << " \n";
+		movement_output << "RESET TIME        : " << this->reset_time << " secs\n";
+		movement_output << "\n";
+		movement_output << "AVERAGE DIST CENT : " << this->average_distanc_fr_center / this->total_time << " m\n";
+		movement_output << "\n";
+		if (target_distances.size()>0) {
+			for (std::map<string, double>::iterator it = std::begin(target_distances); it != std::end(target_distances); ++it) {
+				movement_output << "TARGET DISTANCE AV: " << (it)->first << " -> "<< (double)(it)->second / (double)(target_distances_timer[(it)->first])<<"m\n";
+			}
+			movement_output << "\n";
+		}
+		if (this->vangared_ticks > 0) {
+			movement_output << "------------------------- VESSEL TRACKING -------------------------- \n";
+			for (std::vector<std::string>::iterator ccheck = std::begin((target_name_history)); ccheck != std::end(target_name_history); ++ccheck) {
+				movement_output << "TARGET NAME                  : " << (*ccheck) << " \n";
+			}
+			movement_output << "\n";
+			movement_output << "VANGUARED DEPLOY             : " << this->vangared_ticks << "\n";
+			movement_output << "VANGUARED DEPLOY TIME        : " << this->vangured_time << " secs\n";
+			movement_output << "\n";
+			if (reassignment_activation) {
+				movement_output << "VANGUARED RE-DEPLOY 2        : " << this->reassignment_ticks << "\n";
+				movement_output << "VANGUARED RE-DEPLOY TIME 2   : " << this->reassignment_time << " secs\n";
+				movement_output << "\n";
+			}
+			movement_output << "VANGUARED TARGET LOCK TICKS  : " << this->locked_ticks << "\n";
+			movement_output << "VANGUARED TARGET LOCK TIME   : " << this->locked_time << " secs\n";
+			movement_output << "\n";
+			if (reassignment_activation) {
+				movement_output << "VANGUARED TARGET LOCK TICKS 2: " << this->locked_ticks_2 << "\n";
+				movement_output << "VANGUARED TARGET LOCK TIME  2: " << this->locked_time_2 << " secs\n";
+				movement_output << "\n";
+			}
+			if (this->reassignment_jam_ticks > 0 && this->jam_ticks<=0.5) {
+				movement_output << "RE-DEPLOY FROM JAMMING       : " << this->reassignment_jam_ticks << "\n";
+				movement_output << "RE-DEPLOY FROM JAMMING TIME  : " << this->reassignment_jam_time << " secs\n";
+				movement_output << "\n";
+			}
+			movement_output << "OVERSIGHT PATROLING TICKS    : " << this->oversigh_ticks << "\n";
+			movement_output << "OVERSIGHT PATROLING TIME     : " << this->oversigh_time << " secs\n";
+			movement_output << "\n";
+			if ((this->locked_time + this->vangured_time) > 0) {
+				movement_output << "AVERAGE DISTANCE TARGET      : " << (this->average_distanc_fr_target) / (this->locked_time + this->vangured_time) << " m\n\n";
+			}
+			else {
+				movement_output << "AVERAGE DISTANCE TARGET      : " << (this->average_distanc_fr_target) << " m\n\n";
+			}
+			if (reassignment_activation) {
+				if ((this->locked_time_2 + this->reassignment_time) > 0) {
+					movement_output << "AVERAGE DISTANCE TARGET 2    : " << (this->average_distanc_fr_target2) / (this->locked_time_2 + this->reassignment_time) << " m\n\n";
+				}
+				else {
+					movement_output << "AVERAGE DISTANCE TARGET 2    : " << (this->average_distanc_fr_target2) / (this->locked_time_2 + this->reassignment_time) << " m\n\n";
+				}
+			}
+			if (this->jam_ticks > 0) {
+				movement_output << "------------------------- VESSEL JAM RECOVERY ---------------------- \n";
+				movement_output << "JAM RECOVERY TICKS          : " << (this->jam_ticks) << " \n";
+				movement_output << "JAM RECOVERY TIME           : " << (this->jam_time) << " secs\n\n";
+			}
+
+			movement_output << "----------------------------- VESSEL JOBS PERCENTAGES ---------------------- \n";
+			movement_output << "PATROLING              : " << (this->survilance_ticks * 100) / this->total_ticks << " %\n";
+			movement_output << "RESET                  : " << (this->reset_ticks * 100) / this->total_ticks << " %\n";
+			movement_output << "VANGUARED DEPLOY       : " << (this->vangared_ticks * 100) / this->total_ticks << " %\n";
+			if (reassignment_activation) {
+				movement_output << "VANGUARED RE-DEPLOY 2  : " << (this->reassignment_ticks * 100) / this->total_ticks << " %\n";
+			}
+			movement_output << "VANGUARED LOCK TARGET  : " << (this->locked_ticks * 100) / this->total_ticks << " %\n";
+			if (reassignment_activation) {
+				movement_output << "VANGUARED LOCK TARGET 2: " << (this->locked_ticks_2 * 100) / this->total_ticks << " %\n";
+			}
+			movement_output << "OVERSIGHT              : " << (this->oversigh_ticks * 100) / this->total_ticks << " %\n";
+			if (this->jam_ticks > 0)
+			{
+				movement_output << "JAM RECOVERY           : " << (this->jam_ticks * 100) / this->total_ticks << " %\n\n";
+			}
+			if (this->reassignment_jam_ticks > 0 && this->jam_ticks <= 0.5) {
+				movement_output << "JAM RE-DEPLOY          : " << (this->reassignment_jam_ticks * 100) / this->total_ticks << " %\n\n";
+			}
+		}
+		movement_output.close();
+	}
+}
+
 //[14]
 /***************** movements kinematics ***********/
 void UxV_Vessel::move() {
@@ -472,5 +574,7 @@ void UxV_Vessel::set_sector_id_oversight(int id) {
 	this->sector_id_oversight = id;
 }
 void UxV_Vessel::set_recovery_activation(bool act) { this->recovery_activation = act; }
+void UxV_Vessel::set_jam_time_detonation(int act) { this->jam_time_detonation = act; }
+void UxV_Vessel::set_job(JOB act) { this->job = act; }
 
 #endif

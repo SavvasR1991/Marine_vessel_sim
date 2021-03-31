@@ -255,6 +255,8 @@ void UxV_Team::deploy_UxV_vessels() {
 		}
 	}
 
+	this->refLatitude = refLatitude_init;
+	this->refLongitude = refLongitude_init;
 
 	if (this->commnents_basic == 'y') {
 		print_color_message("\n-------- UxV_Team: creating Shadow team --------------\n", 10);	//create shadow team
@@ -374,22 +376,20 @@ void UxV_Team::evaluate_event(DtTime dt) {
 				break;
 			}
 			else if ((*it)->getEvent() == EVENT_MESSAGE::TARGET_INCOMING) {
-				if (point_is_in_range(this->refLatitude, this->refLongitude, (*it)->getX(), (*it)->getY(), this->ship_range)) {
+				if (point_is_in_range(this->refLatitude_init, this->refLongitude_init, (*it)->getX(), (*it)->getY(), this->ship_range)) {
 					if (this->commnents_basic == 'y') {
 						print_color_message("------ TARGET INCOMING (" + to_string((*it)->getID()) + ") -> {" + to_string((*it)->getX()) + "," + to_string((*it)->getY()) + "," + to_string((*it)->getZ()) + "} \n", 14);
 					}
 					this->targets_available = true;
-					if (point_is_in_range((*it)->getX(), (*it)->getY(), this->refLatitude, this->refLongitude, this->ship_range)) {						
-						targets_id.push_back(TARGET_STATS((*it)->getX(), (*it)->getY(), (*it)->getZ(), (*it)->getVelocity(), (*it)->getAngle(), (*it)->getRadius(), (*it)->getID()));
-						if (targets_id_history.find((*it)->getID()) == targets_id_history.end()) {
-							targets_id_history.insert({ (*it)->getID(),(TARGET_STATS((*it)->getX(),(*it)->getY(),(*it)->getZ(),(*it)->getVelocity(),(*it)->getAngle(),(*it)->getRadius(),(*it)->getID())) });
-						}
-						else {
-							for (std::map<int, TARGET_STATS>::iterator ist = std::begin(targets_id_history); ist != std::end(targets_id_history); ++ist) {
-								if (ist->first == (*it)->getID()) {
-									(ist)->second.set_xyx((*it)->getX(), (*it)->getY(), (*it)->getZ());
-									break;
-								}
+					targets_id.push_back(TARGET_STATS((*it)->getX(), (*it)->getY(), (*it)->getZ(), (*it)->getVelocity(), (*it)->getAngle(), (*it)->getRadius(), (*it)->getID()));
+					if (targets_id_history.find((*it)->getID()) == targets_id_history.end()) {
+						targets_id_history.insert({ (*it)->getID(),(TARGET_STATS((*it)->getX(),(*it)->getY(),(*it)->getZ(),(*it)->getVelocity(),(*it)->getAngle(),(*it)->getRadius(),(*it)->getID())) });
+					}
+					else {
+						for (std::map<int, TARGET_STATS>::iterator ist = std::begin(targets_id_history); ist != std::end(targets_id_history); ++ist) {
+							if (ist->first == (*it)->getID()) {
+								(ist)->second.set_xyx((*it)->getX(), (*it)->getY(), (*it)->getZ());
+								break;
 							}
 						}
 					}
@@ -826,7 +826,6 @@ void UxV_Team::created_shadow_team_subwater() {
 			int shadow_team_members = this->teams_shawdowing_sub[target_name]->get_shadow_team()->size(), direction = 0;
 			double xBeforeRotation = 0, yBeforeRotation = 0, radius_event = (it)->radius;
 			std::vector<SHADOWING_TEAM_DATA*> * curr_array = (this->teams_shawdowing_sub[target_name]->get_shadow_team());
-
 			if ((it)->x >= this->refLatitude) {  // right
 				direction = 1;					// clockwise
 			}
@@ -1029,23 +1028,18 @@ void UxV_Team::check_if_vessels_is_jammed() {
 			if (this->cycleCounter == this->Jamming_time_start) {
 				std::string jammed_vessel = (*it_check)->get_name();
 				if (jammed_vessel == "NKUA_USV_0" + to_string(this->Jamming_Activate)) {
-					//this->print_voting_shadow_team();
-					//this->print_voting_shadow_team_summarize();
 					bool is_jammed_yes = false;
 					bool is_leader_jammed_yes = false;
-
 					for (std::map<std::string, SHADOWING_TEAM*>::iterator it = std::begin(this->teams_shawdowing); it != std::end(this->teams_shawdowing); ++it) {
-
 						for (std::vector<SHADOWING_TEAM_DATA*>::iterator itvv = std::begin(*(it)->second->get_shadow_team()); itvv != std::end(*(it)->second->get_shadow_team()); ++itvv)
 						{
 							if ((*itvv)->get_name() == jammed_vessel) {
 								if (jammed_vessel == (*itvv)->get_vessel_name_leader()) {
 									is_leader_jammed_yes = true;
-									print_color_message("--- Vessel leader " + (*it_check)->get_name() + " is jammed.. \n", COLOR_TEXT::GRAY_COLOR);
-
+									print_color_message("---> Vessel leader " + (*it_check)->get_name() + " is jammed.. \n", COLOR_TEXT::GRAY_COLOR);
 								}
 								else {
-									print_color_message("--- Vessel " + (*it_check)->get_name() + " is jammed.. \n", COLOR_TEXT::RED_COLOR);
+									print_color_message("---> Vessel " + (*it_check)->get_name() + " is jammed.. \n", COLOR_TEXT::RED_COLOR);
 								}
 								is_jammed_yes = true;
 								break;
@@ -1064,26 +1058,23 @@ void UxV_Team::check_if_vessels_is_jammed() {
 						yc = this->team_status[v_name]->current_longitude;
 						zc = this->team_status[v_name]->current_Height;
 						(*it_check)->update_shadow_member(xc, yc, zc, xc, yc, zc, 0, 0);
-						this->Jamming_time_start = -1;
 						for (std::map < std::string, TEAM_JOB_STATUS*>::iterator it_stat = this->team_status.begin(); it_stat != team_status.end(); ++it_stat) {
 							if ((*it_stat).first == jammed_vessel) {
 								it_stat->second->reset_mode_on = true;
 								break;
 							}
 						}
-						print_color_message("    Vessel " + to_string(this->Jamming_Activate) + " reseting.. \n", COLOR_TEXT::RED_COLOR);
+						print_color_message("---> Vessel " + to_string(this->Jamming_Activate) + " reseting.. \n", COLOR_TEXT::RED_COLOR);
 						for (std::map<std::string, SHADOWING_TEAM*>::iterator it = std::begin(this->teams_shawdowing); it != std::end(this->teams_shawdowing); ++it) {
 							if ((it)->first == "Surface_Target_" + to_string(target_id)) {
 								shadow_team_cleanup = (it)->second->get_shadow_team();
 								int counter = 0;
-								//for vessel 2 sxoliasee edw////////////////////////////// gia vessel 5 6 apasxoliaseee edw
 								for (std::vector<SHADOWING_TEAM_DATA*>::iterator itt = std::begin(*shadow_team_cleanup); itt != std::end(*shadow_team_cleanup); ++itt) {
 									if ((*itt)->get_name() == (jammed_vessel)) {
 										itt = shadow_team_cleanup->erase(itt);
 										break;
 									}
 								}
-								//mexri edwwwwwwwwwwwwwwwwwwwwww
 								for (std::vector<SHADOWING_TEAM_DATA*>::iterator itt = std::begin(*shadow_team_cleanup); itt != std::end(*shadow_team_cleanup); ++itt) {
 									if (is_leader_jammed_yes) {
 										(*itt)->set_vessel_name_leader((*itt)->get_name());
@@ -1091,17 +1082,29 @@ void UxV_Team::check_if_vessels_is_jammed() {
 									}
 									(*itt)->set_shadow_id(counter);
 									counter++;
+									for (std::vector<UxV_Vessel*>::iterator update_vessel = std::begin(team); update_vessel != std::end(team); ++update_vessel){
+										if ((*itt)->get_name() == (*update_vessel)->getName()){
+											(*update_vessel)->set_jam_time_detonation(this->Jamming_time_start);
+											for (std::vector<SHADOWING_TEAM_DATA*>::iterator it_stat = std::begin(this->team_shadowing_summary); it_stat != std::end(this->team_shadowing_summary); ++it_stat) {
+												if ((*it_stat)->get_name() == (*update_vessel)->getName()) {
+													(*it_stat)->set_job(JOB::VANGUARED);
+													this->team_status[(*it_stat)->get_name()]->node_jobs_status = JOB::VANGUARED;
+													(*update_vessel)->set_job(JOB::VANGUARED);
+													break;
+												}
+											}
+											break;
+										}
+									}
 								}
 								break;
 							}
 						}
-
+						this->Jamming_time_start = -1;
 					}
 					else {
-						print_color_message("--- Vessel " + (*it_check)->get_name() + " is not i shadow team.. \n", COLOR_TEXT::CYAN_COLOR);
+						print_color_message("---> Vessel " + (*it_check)->get_name() + " is not in shadow team.. \n", COLOR_TEXT::CYAN_COLOR);
 					}
-					//this->print_voting_shadow_team();
-					//this->print_voting_shadow_team_summarize();
 					break;
 				}
 			}

@@ -12,7 +12,7 @@
 
 constexpr auto EXECUTION_MODE = "OCEAN_PROJECT";
 constexpr auto UNIVERSITY_TAG = "NKUA";
-constexpr auto SCENARIO = "4";
+constexpr auto SCENARIO = "1";
 
 int main(int argc, char* argv[])
 {

@@ -1,0 +1,31 @@
+----------------------------- VESSEL DATA ---------------------------------- 
+VESSEL NAME: NKUA_UUV_01
+VESSEL TYPE: SUB_ROV
+
+VESSEL LENGTH    : 4 m
+VESSEL WIDTH     : 3 m
+VESSEL HEIGGHT   : 2 m
+VESSEL MASS      : 200 kg
+VESSEL MAX SPEED : 36.763596 kh/m
+
+
+----------------------------- VESSEL TIMERS -------------------------------- 
+TOTAL TICKS       : 1000 
+TOTAL EXEC TIME   : 1000 secs
+
+------------------------- VESSEL SURVEILANCE ----------------------- 
+PATROLING TICKS   : 1000 
+PATROLING TIME    : 1000 secs
+
+PATROLING F TICKS : 1000 
+PATROLING F TIME  : 1000 secs
+PATROLING F PER   : 20 %
+
+RESET TICKS       : 0 
+RESET TIME        : 0 secs
+
+AVERAGE DIST CENT : 476.832 m
+
+TARGET DISTANCE AV: TARGET_01 -> 599.247m
+TARGET DISTANCE AV: TARGET_02 -> 663.769m
+

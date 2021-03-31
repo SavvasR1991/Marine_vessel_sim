@@ -1,0 +1,11 @@
+SIMULATION TIMER LOGS 
+
+----> High Speed Surface Threat
+--> Two-three targets income
+--> Surface vessels vanguared
+--> Underwater vessel patroling
+-->
+
+Simulation time     : 1000.000000 ticks
+Simulation time	dev : 735.226000 secs
+Simulation time	dev : 12 min: 15 sec: 225 millisec

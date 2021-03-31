@@ -1,0 +1,50 @@
+----------------------------- VESSEL DATA ---------------------------------- 
+VESSEL NAME: NKUA_UUV_02
+VESSEL TYPE: SUB_ROV
+
+VESSEL LENGTH    : 4 m
+VESSEL WIDTH     : 3 m
+VESSEL HEIGGHT   : 2 m
+VESSEL MASS      : 200 kg
+VESSEL MAX SPEED : 58.363596 kh/m
+
+
+----------------------------- VESSEL TIMERS -------------------------------- 
+TOTAL TICKS       : 1000 
+TOTAL EXEC TIME   : 1000 secs
+
+------------------------- VESSEL SURVEILANCE ----------------------- 
+PATROLING TICKS   : 432 
+PATROLING TIME    : 432 secs
+
+PATROLING F TICKS : 432 
+PATROLING F TIME  : 432 secs
+PATROLING F PER   : 35 %
+
+RESET TICKS       : 40 
+RESET TIME        : 40 secs
+
+AVERAGE DIST CENT : 821.865 m
+
+TARGET DISTANCE AV: TARGET_01 -> 421.228m
+
+------------------------- VESSEL TRACKING -------------------------- 
+TARGET NAME                  : TARGET_01 
+
+VANGUARED DEPLOY             : 68
+VANGUARED DEPLOY TIME        : 68 secs
+
+VANGUARED TARGET LOCK TICKS  : 260
+VANGUARED TARGET LOCK TIME   : 260 secs
+
+OVERSIGHT PATROLING TICKS    : 200
+OVERSIGHT PATROLING TIME     : 200 secs
+
+AVERAGE DISTANCE TARGET      : 414.785 m
+
+----------------------------- VESSEL JOBS PERCENTAGES ---------------------- 
+PATROLING              : 43.2 %
+RESET                  : 4 %
+VANGUARED DEPLOY       : 6.8 %
+VANGUARED LOCK TARGET  : 26 %
+OVERSIGHT              : 20 %

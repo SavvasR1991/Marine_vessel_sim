@@ -1,0 +1,11 @@
+SIMULATION TIMER LOGS 
+
+----> Unknown submerged activity
+--> One targets income with mine detonation
+--> Four Surface vessels
+--> Two underwater vessel
+-->
+
+Simulation time     : 1000.000000 ticks
+Simulation time	dev : 609.943000 secs
+Simulation time	dev : 10 min: 9 sec: 942 millisec

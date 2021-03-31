@@ -1,0 +1,11 @@
+SIMULATION TIMER LOGS 
+
+----> Naval base protection in gulf shape
+--> One targets income
+--> Three Surface vessels
+--> Three underwater vessel
+-->
+
+Simulation time     : 1000.000000 ticks
+Simulation time	dev : 414.907000 secs
+Simulation time	dev : 6 min: 54 sec: 906 millisec

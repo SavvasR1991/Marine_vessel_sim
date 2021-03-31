@@ -49,6 +49,7 @@ private:
 	int team_id_shadow;
 	int sector_id_oversight;
 	int jam_timer;
+	int jam_time_detonation;
 
 	std::string log_dir;
 	std::string log_dir_timer;
@@ -58,7 +59,6 @@ private:
 	std::string leader_vangared_name;
 
 	std::vector<string> target_name_history;
-
 
 	double refLatitude_init;
 	double refLongitude_init;
@@ -83,6 +83,9 @@ private:
 	std::map<int, std::vector<Dt3dPoint>> *sector_subwater_status;
 	std::map<std::string, SHADOWING_TEAM*> *teams_shadowing_status;
 	std::map<std::string, Predictor_Position> position_prediction_detector;
+	std::map<std::string, double> target_distances;
+	std::map<std::string, double> target_detect;
+	std::map<std::string, int> target_distances_timer;
 
 	std::list<Point*> patroling_points;
 	std::list<Point*> oversight_points;
@@ -139,12 +142,26 @@ private:
 	double jam_ticks;
 	double jam_time;
 
+	double reassignment_jam_ticks;
+	double reassignment_jam_time;
+
 	double reassignment_ticks;
 	double reassignment_time;
+
+	double reset_ticks;
+	double reset_time;
+
+	double full_patroling_ticks;
+	double full_patroling_time;
 
 	double average_distanc_fr_target;
 	double average_distanc_fr_target2;
 
+	double average_distanc_fr_center;
+
+	int patroling_ponts_total;
+	int patroling_ponts_total_length;
+	bool full_patroling_complete;
 
 	/********** NAVIGATION JOBS **************/
 	void move();
@@ -180,6 +197,7 @@ private:
 	void move_to_possition(DtTime dt);
 	void save_print_vessel_possition();
 	void check_if_out_of_patroling_area();
+	void store_metrics();
 
 	void print_shadow_team();
 	void print_Obstacle_array();
@@ -201,6 +219,8 @@ public:
 	void set_oversight_mode_on(bool);
 	void set_sector_id_oversight(int);
 	void set_recovery_activation(bool);
+	void set_jam_time_detonation(int);
+	void set_job(JOB);
 
 	VESSEL_KINEMATICS* get_current_kinematics();
 	double get_x();

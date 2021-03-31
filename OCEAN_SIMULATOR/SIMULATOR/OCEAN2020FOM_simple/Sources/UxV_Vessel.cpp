@@ -15,6 +15,10 @@ UxV_Vessel::UxV_Vessel(VESSEL_INIT_DATA vessel_data, DtExerciseConn* myExConn,ch
 	this->logs_timer = log_tim;
 	this->log_dir_timer = vessel_data.log_dir_timer;
 
+	this->patroling_ponts_total = 0;
+	this->patroling_ponts_total_length = 0;
+	this->full_patroling_complete = false;
+
 	//******************* REFERENCES *****************//
 	this->kinematics_status = new VESSEL_KINEMATICS();
 	this->vessel_char = new VESSEL_CHARACTERISTICS();
@@ -37,6 +41,8 @@ UxV_Vessel::UxV_Vessel(VESSEL_INIT_DATA vessel_data, DtExerciseConn* myExConn,ch
 
 	//************ SET VESSEL'S PATROLING CHUNKS ******//
 	this->create_Patroling_Points(vessel_data, x_dep, y_dep, x_reset, y_reset);
+
+	this->patroling_ponts_total_length = patroling_points.size();
 
 	//******** KINIMATICS VESSEL'S ATTRIBUTES *********//
 	this->set_Vessel_kinematics_init(vessel_data, x_dep, y_dep, x_reset, y_reset);
@@ -81,8 +87,17 @@ UxV_Vessel::UxV_Vessel(VESSEL_INIT_DATA vessel_data, DtExerciseConn* myExConn,ch
 	this->survilance_ticks = 0;
 	this->survilance_time = 0;
 
+	this->full_patroling_ticks = 0;
+	this->full_patroling_time = 0;
+
+	this->reset_ticks = 0;
+	this->reset_time = 0;
+
 	this->jam_ticks = 0;
 	this->jam_time = 0;
+
+	this->reassignment_jam_ticks = 0;
+	this->reassignment_jam_time = 0;
 
 	this->reassignment_ticks = 0;
 	this->reassignment_time = 0;
@@ -90,7 +105,11 @@ UxV_Vessel::UxV_Vessel(VESSEL_INIT_DATA vessel_data, DtExerciseConn* myExConn,ch
 	this->average_distanc_fr_target = 0;
 	this->average_distanc_fr_target2 = 0;
 
+	this->average_distanc_fr_center = 0;
+
 	this->jam_timer = jam_timer;
+
+	this->jam_time_detonation = 0;
 
 	this->reassignment_activation = false;
 
@@ -120,80 +139,9 @@ UxV_Vessel::UxV_Vessel(VESSEL_INIT_DATA vessel_data, DtExerciseConn* myExConn,ch
 //[2]
 /***************** ~ElementVessel ***************/
 UxV_Vessel::~UxV_Vessel() {
-	std::cout << "\n>>----- " << vessel_char->get_name() << " Deleted -----<<" << std::endl;
-	if (this->logs_timer == 'y') {
-		std::fstream movement_output;
-		movement_output.open(log_dir_timer + "\\" + vessel_char->get_name() + ".txt", std::fstream::in | std::fstream::out | std::fstream::app);
-		movement_output << "\n";
-		movement_output << "----------------------------- VESSEL TIMERS -------------------------------- \n";
-		movement_output << "TOTAL TICKS       : " << this->total_ticks << " \n";
-		movement_output << "TOTAL EXEC TIME   : " << this->total_time << " secs\n\n";
-		movement_output << "------------------------- VESSEL SURVEILANCE ----------------------- \n";
-		movement_output << "SURVEILANCE TICKS : " << this->survilance_ticks << " \n";
-		movement_output << "SURVEILANCE TIME  : " << this->survilance_time << " secs\n";
-		movement_output << "\n";
-		if (this->vangared_ticks > 0) {
-			movement_output << "------------------------- VESSEL TRACKING -------------------------- \n";
-			for (std::vector<std::string>::iterator ccheck = std::begin((target_name_history)); ccheck != std::end(target_name_history); ++ccheck) {
-				movement_output << "TARGET NAME                  : " << (*ccheck) << " \n";
-			}
-			movement_output << "\n";
-			movement_output << "VANGUARED DEPLOY             : " << this->vangared_ticks << "\n";
-			movement_output << "VANGUARED DEPLOY TIME        : " << this->vangured_time << " secs\n";
-			movement_output << "\n";
-			if (reassignment_activation) {
-				movement_output << "VANGUARED RE-DEPLOY 2        : " << this->reassignment_ticks << "\n";
-				movement_output << "VANGUARED RE-DEPLOY TIME 2   : " << this->reassignment_time << " secs\n";
-				movement_output << "\n";
-			}
-			movement_output << "VANGUARED TARGET LOCK TICKS  : " << this->locked_ticks << "\n";
-			movement_output << "VANGUARED TARGET LOCK TIME   : " << this->locked_time << " secs\n";
-			movement_output << "\n";
-			if (reassignment_activation) {
-				movement_output << "VANGUARED TARGET LOCK TICKS 2: " << this->locked_ticks_2 << "\n";
-				movement_output << "VANGUARED TARGET LOCK TIME  2: " << this->locked_time_2 << " secs\n";
-				movement_output << "\n";
-			}
-			movement_output << "OVERSIGHT PATROLING TICKS    : " << this->oversigh_ticks << "\n";
-			movement_output << "OVERSIGHT PATROLING TIME     : " << this->oversigh_time << " secs\n";
-			movement_output << "\n";
-			if ((this->locked_time + this->vangured_time) > 0) {
-				movement_output << "AVERAGE DISTANCE TARGET      : " << (this->average_distanc_fr_target) / (this->locked_time + this->vangured_time) << " m\n\n";
-			}
-			else {
-				movement_output << "AVERAGE DISTANCE TARGET      : " << (this->average_distanc_fr_target) << " m\n\n";
-			}
-			if (reassignment_activation) {
-				if ((this->locked_time_2 + this->reassignment_time) > 0) {
-					movement_output << "AVERAGE DISTANCE TARGET 2    : " << (this->average_distanc_fr_target2) / (this->locked_time_2 + this->reassignment_time) << " m\n\n";
-				}
-				else {
-					movement_output << "AVERAGE DISTANCE TARGET 2    : " << (this->average_distanc_fr_target2) / (this->locked_time_2 + this->reassignment_time) << " m\n\n";
-				}
-			}
-			if (this->jam_ticks > 0) {
-				movement_output << "------------------------- VESSEL JAM RECOVERY ---------------------- \n";
-				movement_output << "JAM RECOVERY TICKS          : " << (this->jam_ticks) << " \n";
-				movement_output << "JAM RECOVERY TIME           : " << (this->jam_time) << " secs\n\n";
-			}
-			movement_output << "----------------------------- VESSEL JOBS PERCENTAGES ---------------------- \n";
-			movement_output << "SURVEILANCE            : " << (this->survilance_ticks * 100) / this->total_ticks << " %\n";
-			movement_output << "VANGUARED DEPLOY       : " << (this->vangared_ticks * 100) / this->total_ticks << " %\n";
-			if (reassignment_activation) {
-				movement_output << "VANGUARED RE-DEPLOY 2  : " << (this->reassignment_ticks * 100) / this->total_ticks << " %\n";
-			}
-			movement_output << "VANGUARED LOCK TARGET  : " << (this->locked_ticks * 100) / this->total_ticks << " %\n";
-			if (reassignment_activation) {
-				movement_output << "VANGUARED LOCK TARGET 2: " << (this->locked_ticks_2 * 100) / this->total_ticks << " %\n";
-			}
-			movement_output << "OVERSIGHT              : " << (this->oversigh_ticks * 100) / this->total_ticks << " %\n";
-			if (this->jam_ticks > 0)
-			{
-				movement_output << "JAM RECOVERY           : " << (this->jam_ticks * 100) / this->total_ticks << " %\n\n";
-			}
-		}
-		movement_output.close();
-	}
+
+	store_metrics();
+	
 	for (std::list<Point*>::iterator it=this->patroling_points.begin(); it != this->patroling_points.end();++it) {
 		delete (*it);
 	}
@@ -293,7 +241,24 @@ bool UxV_Vessel::evaluateEvent(std::vector <EVENT*>* event, FOM_EVENT* fom_event
 			}
 		}
 		
-	}	
+	}
+	for (std::vector<EVENT*>::iterator it = std::begin(*(event)); it != std::end(*(event)); ++it) {
+		double distance_counter = 0.0;
+		distance_counter = point_distance_3d((*it)->getX(), (*it)->getY(), (*it)->getZ(), this->kinematics_status->get_current_x(), this->kinematics_status->get_current_y(), this->kinematics_status->get_current_z());
+		if (point_is_in_range((*it)->getX(), (*it)->getY(), 0.0, 0.0, this->ship_range)) {
+			std::string keys = "TARGET_0" + to_string((*it)->getID());
+			if (target_distances.find(keys) == target_distances.end()) {
+				target_distances.insert({ "TARGET_0" + to_string((*it)->getID()), distance_counter });
+				target_distances_timer.insert({ "TARGET_0" + to_string((*it)->getID()), 1 });	
+				target_detect.insert({ "TARGET_0" + to_string((*it)->getID()), 1 });
+			}
+			else {
+				target_distances[keys] += distance_counter;
+				target_distances_timer[keys] ++;
+			}
+		}
+	}
+
 	return true;
 }
 
@@ -343,13 +308,6 @@ bool UxV_Vessel::publish_possition() {
 
 	if (this->exConn != NULL) {
 		try {
-			/*cout << this->getName() << " lat:" << this->final_possition[0] << " long:" << this->final_possition[1] << " z:" << this->final_possition[2] << endl;
-			cout << "            top:"<< this->VesselDataTopoView->location()<<endl;
-			cout << "            lat:" << this->kinematics_status->get_destination_x() << " long:" << this->kinematics_status->get_destination_x() << " z:" << this->final_possition[2] << endl;
-			cout << "            psi:" << DtRad2Deg(this->final_orient.psi()) << " phi:" << DtRad2Deg(this->final_orient.phi()) << " the:" << DtRad2Deg(this->final_orient.theta()) << endl;
-			cout << "            Vel: " << this->vessel_motion->get_speed() << "m/s, vx:" << final_velocity[0] << " vy:" << final_velocity[1] << " vz:" << final_velocity[2] << endl;
-			cout << "            Acc: " << this->vessel_motion->get_acceleration()<< "m/s^2, vx:" << final_acceleration[0] << " vy:" << final_acceleration[1] << " vz:" << final_acceleration[2] << endl << endl;
-			*/
 			//this->VesselDataTopoView->setAcceleration(this->final_acceleration);
 			this->VesselDataTopoView->setLocation(this->final_possition);
 			this->VesselDataTopoView->setOrientation(this->final_orient);
@@ -606,34 +564,49 @@ void UxV_Vessel::evaluate_no_message() {
 void UxV_Vessel::set_current_job() {
 	switch (this->job) {
 		case JOB::PATROLING:	
-			Surveilance_Loiter::patroling(kinematics_status, vessel_char,vessel_motion, current_patroling_point, patroling_points);
+			Surveilance_Loiter::patroling(kinematics_status, vessel_char,vessel_motion, current_patroling_point, patroling_points,this->patroling_ponts_total);
 			this->survilance_ticks++;
 			this->survilance_time += this->dt;
+			if (this->patroling_ponts_total <= this->patroling_ponts_total_length) {
+				this->full_patroling_ticks++;
+				this->full_patroling_time += dt;
+			}
+			else{
+				full_patroling_complete = true;
+			}
+			this->jam_time_detonation = -1;
 			break;
 		case JOB::RESET:	 
 			Surveilance_Loiter::reset(kinematics_status, vessel_char, current_patroling_point, patroling_points, &reset_mode_on, &this->job);
 			if (jam_timer <= 0) {
-				this->survilance_ticks++;
-				this->survilance_time += this->dt;
+				this->reset_ticks++;
+				this->reset_time += this->dt;
 			}
 			else {
 				this->jam_ticks++;
 				this->jam_time+= this->dt;
 			}
+			this->jam_time_detonation = -1;
 			break;
 		case JOB::VANGUARED:  
 			Tracking_Shadowing::vanguared(kinematics_status, vessel_char, this->target_X, this->target_Y, this->target_Z, this->my_team_shawdowing_voted, &this->job, this->vanguard_distance, this->vanguared_Distance_sub_depth);
-			if (!reassignment_activation) {
-				this->vangared_ticks++;
-				this->vangured_time += this->dt;
-				if (point_distance_3d(this->target_X, this->target_Y, this->target_Z, this->kinematics_status->get_current_x(), this->kinematics_status->get_current_y(), this->kinematics_status->get_current_z()) <= 2 * this->ship_range)
-					this->average_distanc_fr_target += point_distance_3d(this->target_X, this->target_Y, this->target_Z, this->kinematics_status->get_current_x(), this->kinematics_status->get_current_y(), this->kinematics_status->get_current_z());
+			if (this->jam_time_detonation > 0) {
+				this->reassignment_jam_ticks++;
+				this->reassignment_jam_time += dt;
 			}
 			else {
-				this->reassignment_ticks++;
-				this->reassignment_time += this->dt;
-				if (point_distance_3d(this->target_X, this->target_Y, this->target_Z, this->kinematics_status->get_current_x(), this->kinematics_status->get_current_y(), this->kinematics_status->get_current_z()) <= 2 * this->ship_range)
-					this->average_distanc_fr_target2 += point_distance_3d(this->target_X, this->target_Y, this->target_Z, this->kinematics_status->get_current_x(), this->kinematics_status->get_current_y(), this->kinematics_status->get_current_z());
+				if (!reassignment_activation) {
+					this->vangared_ticks++;
+					this->vangured_time += this->dt;
+					if (point_distance_3d(this->target_X, this->target_Y, this->target_Z, this->kinematics_status->get_current_x(), this->kinematics_status->get_current_y(), this->kinematics_status->get_current_z()) <= 2 * this->ship_range)
+						this->average_distanc_fr_target += point_distance_3d(this->target_X, this->target_Y, this->target_Z, this->kinematics_status->get_current_x(), this->kinematics_status->get_current_y(), this->kinematics_status->get_current_z());
+				}
+				else {
+					this->reassignment_ticks++;
+					this->reassignment_time += this->dt;
+					if (point_distance_3d(this->target_X, this->target_Y, this->target_Z, this->kinematics_status->get_current_x(), this->kinematics_status->get_current_y(), this->kinematics_status->get_current_z()) <= 2 * this->ship_range)
+						this->average_distanc_fr_target2 += point_distance_3d(this->target_X, this->target_Y, this->target_Z, this->kinematics_status->get_current_x(), this->kinematics_status->get_current_y(), this->kinematics_status->get_current_z());
+				}
 			}
 			break;
 		case JOB::LOCK:		  
@@ -650,15 +623,18 @@ void UxV_Vessel::set_current_job() {
 				if (point_distance_3d(this->target_X, this->target_Y, this->target_Z, this->kinematics_status->get_current_x(), this->kinematics_status->get_current_y(), this->kinematics_status->get_current_z()) <= 2 * this->ship_range)
 					this->average_distanc_fr_target2 += point_distance_3d(this->target_X, this->target_Y, this->target_Z, this->kinematics_status->get_current_x(), this->kinematics_status->get_current_y(), this->kinematics_status->get_current_z());
 			}
+			this->jam_time_detonation = -1;
 			break;
 		case JOB::OVERSIGHT: 
 			Tracking_Shadowing::oversight(kinematics_status, vessel_char, current_oversight_point, oversight_points, this->leader_vangared_name, this->x_leader_overview, this->y_leader_overview, this->z_leader_overview);		
 			this->oversigh_ticks++;
 			this->oversigh_time += this->dt;
+			this->jam_time_detonation = -1;
 			break;
 		case JOB::RECOVERY:   break;
 		default:			  this->job = JOB::NONE;
 	}
+	this->average_distanc_fr_center += point_distance_3d(0, 0, 0, this->kinematics_status->get_current_x(), this->kinematics_status->get_current_y(), this->kinematics_status->get_current_z());
 }
 
 //[13]
